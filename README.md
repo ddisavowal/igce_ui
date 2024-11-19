@@ -1,9 +1,11 @@
 1. Создать новый проект 
+    //
     flutter create app_name
 
 2. В файле pubspec.yaml в зависимости добавить путь к пакету
 3. В файле pubspec.yaml в зависимости добавить flutter_bloc, shared_preferences
     Пример:
+    //
     dependencies:
     flutter:
         sdk: flutter
@@ -15,7 +17,7 @@
    Обернуть приложение в BlocProvider, указать в провайдере блок темы (импортировать из пакета ThemeCubit, ThemeRepository).
    В виджете MaterialApp добавить светлую и темную тему из класса IgceAppTheme, в themeMode указать состояние.
    Пример:
-
+    //
     void main() async {
         WidgetsFlutterBinding.ensureInitialized();
         final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -23,12 +25,11 @@
             prefs: prefs,
         ));
     }
-
+    // This widget is the root of your application.
     class MyApp extends StatelessWidget {
         final SharedPreferences prefs;
         const MyApp({super.key, required this.prefs});
 
-        // This widget is the root of your application.
         @override
         Widget build(BuildContext context) {
             return BlocProvider(
