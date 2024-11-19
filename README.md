@@ -1,40 +1,53 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+1. Создать новый проект 
+    flutter create app_name
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+2. В файле pubspec.yaml в зависимости добавить путь к пакету
+3. В файле pubspec.yaml в зависимости добавить flutter_bloc, shared_preferences
+    Пример:
+    dependencies:
+    flutter:
+        sdk: flutter
+    igce_theme:
+        path: ../igce_theme
+    flutter_bloc: ^8.1.6
+    shared_preferences: ^2.3.2
+4. В main создать инстанс SharedPreferences, передать его в виджет приложения.
+   Обернуть приложение в BlocProvider, указать в провайдере блок темы (импортировать из пакета ThemeCubit, ThemeRepository).
+   В виджете MaterialApp добавить светлую и темную тему из класса IgceAppTheme, в themeMode указать состояние.
+   Пример:
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+    void main() async {
+        WidgetsFlutterBinding.ensureInitialized();
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        runApp(MyApp(
+            prefs: prefs,
+        ));
+    }
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+    class MyApp extends StatelessWidget {
+        final SharedPreferences prefs;
+        const MyApp({super.key, required this.prefs});
 
-## Features
+        // This widget is the root of your application.
+        @override
+        Widget build(BuildContext context) {
+            return BlocProvider(
+            create: (context) =>
+                ThemeCubit(themeRepository: ThemeRepository(preferences: prefs)),
+            child: BlocBuilder<ThemeCubit, ThemeState>(builder: (context, state) {
+                return MaterialApp(
+                title: 'Flutter Demo',
+                theme: IgceAppTheme.lightTheme,
+                darkTheme: IgceAppTheme.darkTheme,
+                themeMode: state.themeMode,
+                home: const MyHomePage(title: 'Flutter Demo Home Page'),
+                debugShowCheckedModeBanner: false,
+                );
+            }),
+            );
+        
+        }
+    }
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
-```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
-# igce_ui
+5. Использовать готовые компоненты, импортируя 'package:igce_theme/ui/ui.dart'
+6. 
