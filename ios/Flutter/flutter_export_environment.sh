@@ -1,13 +1,13 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=/Users/vikalucikova/data/utils/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/vikalucikova/data/vscode_projects/flutter_projects/test_project"
+export "FLUTTER_APPLICATION_PATH=/Users/vikalucikova/data/vscode_projects/flutter_projects/example/igce_ui"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
-export "FLUTTER_TARGET=/Users/vikalucikova/data/vscode_projects/flutter_projects/test_project/lib/main.dart"
+export "FLUTTER_TARGET=/Users/vikalucikova/data/vscode_projects/flutter_projects/example/igce_ui/lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
 export "FLUTTER_BUILD_NUMBER=1"
 export "DART_OBFUSCATION=false"
 export "TRACK_WIDGET_CREATION=true"
 export "TREE_SHAKE_ICONS=false"
-export "PACKAGE_CONFIG=/Users/vikalucikova/data/vscode_projects/flutter_projects/test_project/.dart_tool/package_config.json"
+export "PACKAGE_CONFIG=/Users/vikalucikova/data/vscode_projects/flutter_projects/example/igce_ui/.dart_tool/package_config.json"
