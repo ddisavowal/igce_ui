@@ -10,15 +10,15 @@ class IgceFilledButtonTheme extends FilledButtonThemeData {
             style: FilledButton.styleFrom(
           backgroundColor: brightness == Brightness.light
               ? AppColors.defaultLightColor
-              : AppColors.defaultDarkAnotherColor,
+              : AppColors.defaultDarkColor,
           disabledBackgroundColor: brightness == Brightness.light
               // ? AppColors.defaultLightColor.withOpacity(0.09)
               ? AppColors.accentGreyLightColor
               : AppColors.accentGreyDarkColor,
           // : AppColors.defaultDarkColor.withOpacity(0.09),
           foregroundColor: brightness == Brightness.light
-              ? AppColors.white
-              : AppColors.defaultDarkColor,
+              ? AppColors.textAccentLightColor
+              : AppColors.textAccentDarkColor,
           disabledForegroundColor: brightness == Brightness.light
               ? AppColors.black.withOpacity(0.4)
               : AppColors.white.withOpacity(0.4),

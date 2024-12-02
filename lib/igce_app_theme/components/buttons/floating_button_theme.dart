@@ -9,10 +9,10 @@ class IgceFloatingButtonTheme extends FloatingActionButtonThemeData {
   }) : super(
           backgroundColor: (brightness == Brightness.light
               ? AppColors.defaultLightColor
-              : AppColors.defaultDarkAnotherColor),
+              : AppColors.defaultDarkColor),
           foregroundColor: brightness == Brightness.light
-              ? AppColors.white
-              : AppColors.defaultDarkColor,
+              ? AppColors.textAccentLightColor
+              : AppColors.textAccentLightColor,
           splashColor: (brightness == Brightness.light
               ? AppColors.animationMainLightColor
               : AppColors.animationBlackDarkColor),

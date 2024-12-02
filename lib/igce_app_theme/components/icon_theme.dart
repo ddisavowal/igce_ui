@@ -10,8 +10,8 @@ class IgceIconTheme extends IconThemeData {
     double? opacity,
   }) : super(
           color: brightness == Brightness.light
-              ? AppColors.defaultLightColor
-              : AppColors.defaultDarkColor,
+              ? AppColors.primaryLightColor
+              : AppColors.primaryDarkColor,
           size: size ?? 24.0, // Размер по умолчанию
           opacity: opacity ?? 1.0, // Прозрачность по умолчанию
         );

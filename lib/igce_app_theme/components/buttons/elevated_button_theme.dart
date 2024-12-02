@@ -30,8 +30,8 @@ class IgceElevatedButtonTheme extends ElevatedButtonThemeData {
                 : AppColors.greyDefaultDarkColor),
         foregroundColor = foregroundColor ??
             (brightness == Brightness.light
-                ? AppColors.defaultLightColor
-                : AppColors.defaultDarkColor),
+                ? AppColors.primaryLightColor
+                : AppColors.primaryLightColor),
         super(
             style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.transparent,
@@ -72,8 +72,8 @@ class IgceElevatedButtonTheme extends ElevatedButtonThemeData {
               return BorderSide(
                   width: 1.6,
                   color: brightness == Brightness.light
-                      ? AppColors.defaultLightColor
-                      : AppColors.defaultDarkColor);
+                      ? AppColors.primaryLightColor
+                      : AppColors.primaryDarkColor);
             },
           ),
         ));

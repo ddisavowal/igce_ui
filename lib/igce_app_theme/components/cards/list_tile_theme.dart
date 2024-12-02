@@ -11,12 +11,12 @@ class IgceListTileTheme extends ListTileThemeData {
     ListTileTitleAlignment? titleAlignment,
   }) : super(
           iconColor: brightness == Brightness.light
-              ? AppColors.defaultLightColor
-              : AppColors.defaultDarkColor,
+              ? AppColors.primaryLightColor
+              : AppColors.primaryDarkColor,
           textColor: textColor ??
               (brightness == Brightness.light
-                  ? AppColors.black
-                  : AppColors.white),
+                  ? AppColors.textDefaultLightColor
+                  : AppColors.textDefaultDarkColor),
           titleAlignment: titleAlignment ?? ListTileTitleAlignment.center,
         );
 }
