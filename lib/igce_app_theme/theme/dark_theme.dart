@@ -14,7 +14,7 @@ ThemeData createDarkTheme() {
       },
     ),
     brightness: Brightness.dark,
-    primaryColor: AppColors.defaultLightColor,
+    primaryColor: AppColors.primaryDarkColor,
     scaffoldBackgroundColor: AppColors.backgroundAppDarkColor,
     dialogBackgroundColor: AppColors.backgroundWidgetDarkColor,
 
@@ -46,12 +46,12 @@ ThemeData createDarkTheme() {
     // drawerTheme: const MuctrDrawerTheme(),
     // timePickerTheme: MuctrTimePickerTheme(brightness: Brightness.light),
     // dialogTheme: MuctrDialogTheme(brightness: Brightness.light),
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
         elevation: 0,
         // shadowColor: AppColors.boxShadowDarkColor,
         // color: AppColors.defaultDarkAnotherColor,
-        backgroundColor: AppColors.defaultDarkAnotherColor,
-        foregroundColor: AppColors.white,
+        backgroundColor: AppColors.defaultDarkColor,
+        foregroundColor: AppColors.textDefaultDarkColor,
         centerTitle: true),
 
     useMaterial3: true,
