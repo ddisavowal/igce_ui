@@ -4,83 +4,100 @@ import '../igce_app_theme.dart';
 
 class IgceColorsTheme extends ThemeExtension<IgceColorsTheme> {
   final Color defaultColor;
+  final Color primaryColor;
   final Color backgroundAppColor;
   final Color backgroundWidgetColor;
+  final Color boxShadowColor;
+
   final Color defaultGreyColor;
   final Color accentColor;
   final Color accentGreyColor;
+
+  final Color mainClickColor;
+  final Color primaryClickColor;
   final Color greyClickColor;
   final Color lightClickColor;
-  final Color mainClickColor;
-  // final Color elevatedClickColor;
-  // final Color lightButtonColor;
+
   final Color defaultTextColor;
-  final Color boxShadowColor;
-  final Color defaultTransparentColor;
-  final Color defaultBlackColor;
-  final Color defaultWhiteColor;
-  final Color defaultBlueColor;
+  final Color accentTextColor;
+  final Color lightTextColor;
+
   final Color defaultErrorColor;
+  final Color defaultBlueColor;
+
+  final Color defaultWhiteColor;
+  final Color defaultBlackColor;
+  final Color defaultTransparentColor;
 
   const IgceColorsTheme({
     required this.defaultColor,
+    required this.primaryColor,
     required this.backgroundAppColor,
     required this.backgroundWidgetColor,
+    required this.boxShadowColor,
     required this.defaultGreyColor,
     required this.accentColor,
     required this.accentGreyColor,
+    required this.mainClickColor,
+    required this.primaryClickColor,
     required this.greyClickColor,
     required this.lightClickColor,
-    required this.mainClickColor,
     required this.defaultTextColor,
-    required this.boxShadowColor,
-    required this.defaultTransparentColor,
-    required this.defaultBlackColor,
-    required this.defaultWhiteColor,
-    required this.defaultBlueColor,
+    required this.accentTextColor,
+    required this.lightTextColor,
     required this.defaultErrorColor,
+    required this.defaultBlueColor,
+    required this.defaultWhiteColor,
+    required this.defaultBlackColor,
+    required this.defaultTransparentColor,
   });
 
   @override
   ThemeExtension<IgceColorsTheme> copyWith({
     Color? defaultColor,
+    Color? primaryColor,
     Color? backgroundAppColor,
     Color? backgroundWidgetColor,
+    Color? boxShadowColor,
     Color? defaultGreyColor,
     Color? accentColor,
     Color? accentGreyColor,
+    Color? mainClickColor,
+    Color? primaryClickColor,
     Color? greyClickColor,
     Color? lightClickColor,
-    Color? mainClickColor,
     Color? defaultTextColor,
-    Color? boxShadowColor,
-    Color? defaultTransparentColor,
-    Color? defaultBlackColor,
-    Color? defaultWhiteColor,
-    Color? defaultBlueColor,
+    Color? accentTextColor,
+    Color? lightTextColor,
     Color? defaultErrorColor,
+    Color? defaultBlueColor,
+    Color? defaultWhiteColor,
+    Color? defaultBlackColor,
+    Color? defaultTransparentColor,
   }) {
     return IgceColorsTheme(
       defaultColor: defaultColor ?? this.defaultColor,
+      primaryColor: primaryColor ?? this.primaryColor,
       backgroundAppColor: backgroundAppColor ?? this.backgroundAppColor,
       backgroundWidgetColor:
           backgroundWidgetColor ?? this.backgroundWidgetColor,
+      boxShadowColor: boxShadowColor ?? this.boxShadowColor,
       defaultGreyColor: defaultGreyColor ?? this.defaultGreyColor,
       accentColor: accentColor ?? this.accentColor,
       accentGreyColor: accentGreyColor ?? this.accentGreyColor,
+      mainClickColor: mainClickColor ?? this.mainClickColor,
+      primaryClickColor: primaryClickColor ?? this.primaryClickColor,
       greyClickColor: greyClickColor ?? this.greyClickColor,
       lightClickColor: lightClickColor ?? this.lightClickColor,
-      mainClickColor: mainClickColor ?? this.mainClickColor,
       defaultTextColor: defaultTextColor ?? this.defaultTextColor,
-
-      boxShadowColor: boxShadowColor ?? this.boxShadowColor,
+      accentTextColor: accentTextColor ?? this.accentTextColor,
+      lightTextColor: lightTextColor ?? this.lightTextColor,
+      defaultErrorColor: defaultErrorColor ?? this.defaultErrorColor,
+      defaultBlueColor: defaultBlueColor ?? this.defaultBlueColor,
+      defaultWhiteColor: defaultWhiteColor ?? this.defaultWhiteColor,
+      defaultBlackColor: defaultBlackColor ?? this.defaultBlackColor,
       defaultTransparentColor:
           defaultTransparentColor ?? this.defaultTransparentColor,
-      defaultBlackColor: defaultBlackColor ?? this.defaultBlackColor,
-      defaultWhiteColor: defaultWhiteColor ?? this.defaultWhiteColor,
-      defaultBlueColor: defaultBlueColor ?? this.defaultBlueColor,
-      defaultErrorColor: defaultErrorColor ?? this.defaultErrorColor,
-      // Добавлено
     );
   }
 
@@ -94,68 +111,81 @@ class IgceColorsTheme extends ThemeExtension<IgceColorsTheme> {
     }
     return IgceColorsTheme(
       defaultColor: Color.lerp(defaultColor, other.defaultColor, t)!,
+      primaryColor: Color.lerp(primaryColor, other.primaryColor, t)!,
       backgroundAppColor:
           Color.lerp(backgroundAppColor, other.backgroundAppColor, t)!,
       backgroundWidgetColor:
           Color.lerp(backgroundWidgetColor, other.backgroundWidgetColor, t)!,
+      boxShadowColor: Color.lerp(boxShadowColor, other.boxShadowColor, t)!,
       defaultGreyColor:
           Color.lerp(defaultGreyColor, other.defaultGreyColor, t)!,
       accentColor: Color.lerp(accentColor, other.accentColor, t)!,
       accentGreyColor: Color.lerp(accentGreyColor, other.accentGreyColor, t)!,
+      mainClickColor: Color.lerp(mainClickColor, other.mainClickColor, t)!,
+      primaryClickColor:
+          Color.lerp(primaryClickColor, other.primaryClickColor, t)!,
       greyClickColor: Color.lerp(greyClickColor, other.greyClickColor, t)!,
       lightClickColor: Color.lerp(lightClickColor, other.lightClickColor, t)!,
-      mainClickColor: Color.lerp(mainClickColor, other.mainClickColor, t)!,
       defaultTextColor:
           Color.lerp(defaultTextColor, other.defaultTextColor, t)!,
-      boxShadowColor: Color.lerp(boxShadowColor, other.boxShadowColor, t)!,
-      defaultTransparentColor: Color.lerp(
-          defaultTransparentColor, other.defaultTransparentColor, t)!,
-      defaultBlackColor:
-          Color.lerp(defaultBlackColor, other.defaultBlackColor, t)!,
-      defaultWhiteColor:
-          Color.lerp(defaultWhiteColor, other.defaultWhiteColor, t)!,
-      defaultBlueColor:
-          Color.lerp(defaultBlueColor, other.defaultBlueColor, t)!,
+      accentTextColor: Color.lerp(accentTextColor, other.accentTextColor, t)!,
+      lightTextColor: Color.lerp(lightTextColor, other.lightTextColor, t)!,
       defaultErrorColor:
           Color.lerp(defaultErrorColor, other.defaultErrorColor, t)!,
+      defaultBlueColor:
+          Color.lerp(defaultBlueColor, other.defaultBlueColor, t)!,
+      defaultWhiteColor:
+          Color.lerp(defaultWhiteColor, other.defaultWhiteColor, t)!,
+      defaultBlackColor:
+          Color.lerp(defaultBlackColor, other.defaultBlackColor, t)!,
+      defaultTransparentColor: Color.lerp(
+          defaultTransparentColor, other.defaultTransparentColor, t)!,
     );
   }
 
-  static get light => IgceColorsTheme(
-        defaultColor: AppColors.defaultLightColor,
-        backgroundAppColor: AppColors.backgroundAppLightColor,
-        backgroundWidgetColor: AppColors.backgroundWidgetLightColor,
-        defaultGreyColor: AppColors.greyDefaultLightColor,
-        accentColor: AppColors.accentLightColor,
-        accentGreyColor: AppColors.accentGreyLightColor,
-        greyClickColor: AppColors.animationGreyLightColor,
-        lightClickColor: AppColors.animationWhiteLightColor,
-        mainClickColor: AppColors.animationMainLightColor,
-        defaultTextColor: AppColors.black,
-        boxShadowColor: AppColors.accentLightColor,
-        defaultTransparentColor: AppColors.transparent,
-        defaultBlackColor: AppColors.black,
-        defaultWhiteColor: AppColors.white,
-        defaultBlueColor: AppColors.defaultBlueLightColor,
-        defaultErrorColor: AppColors.defaultErrorLightColor,
-      );
+  static const light = IgceColorsTheme(
+    defaultColor: AppColors.defaultLightColor,
+    primaryColor: AppColors.primaryLightColor,
+    backgroundAppColor: AppColors.backgroundAppLightColor,
+    backgroundWidgetColor: AppColors.backgroundWidgetLightColor,
+    boxShadowColor: AppColors.boxShadowLightColor,
+    defaultGreyColor: AppColors.greyDefaultLightColor,
+    accentColor: AppColors.accentLightColor,
+    accentGreyColor: AppColors.accentGreyLightColor,
+    mainClickColor: AppColors.animationMainLightColor,
+    primaryClickColor: AppColors.animationPrimaryLightColor,
+    greyClickColor: AppColors.animationGreyLightColor,
+    lightClickColor: AppColors.animationWhiteLightColor,
+    defaultTextColor: AppColors.textDefaultLightColor,
+    accentTextColor: AppColors.textAccentLightColor,
+    lightTextColor: AppColors.textLigntLightColor,
+    defaultErrorColor: AppColors.defaultErrorLightColor,
+    defaultBlueColor: AppColors.defaultBlueLightColor,
+    defaultWhiteColor: AppColors.white,
+    defaultBlackColor: AppColors.black,
+    defaultTransparentColor: AppColors.transparent,
+  );
 
-  static get dark => IgceColorsTheme(
-        defaultColor: AppColors.defaultDarkColor,
-        backgroundAppColor: AppColors.backgroundAppDarkColor,
-        backgroundWidgetColor: AppColors.backgroundWidgetDarkColor,
-        defaultGreyColor: AppColors.greyDefaultDarkColor,
-        accentColor: AppColors.accentDarkColor,
-        accentGreyColor: AppColors.accentGreyDarkColor,
-        greyClickColor: AppColors.animationGreyDarkColor,
-        lightClickColor: AppColors.animationBlackDarkColor,
-        mainClickColor: AppColors.animationMainDarkColor,
-        defaultTextColor: AppColors.white,
-        boxShadowColor: AppColors.transparent,
-        defaultTransparentColor: AppColors.transparent,
-        defaultBlackColor: AppColors.black,
-        defaultWhiteColor: AppColors.white,
-        defaultBlueColor: AppColors.defaultBlueDarkColor,
-        defaultErrorColor: AppColors.defaultErrorDarkColor,
-      );
+  static const dark = IgceColorsTheme(
+    defaultColor: AppColors.defaultDarkColor,
+    primaryColor: AppColors.primaryDarkColor,
+    backgroundAppColor: AppColors.backgroundAppDarkColor,
+    backgroundWidgetColor: AppColors.backgroundWidgetDarkColor,
+    boxShadowColor: AppColors.boxShadowDarkColor,
+    defaultGreyColor: AppColors.greyDefaultDarkColor,
+    accentColor: AppColors.accentDarkColor,
+    accentGreyColor: AppColors.accentGreyDarkColor,
+    mainClickColor: AppColors.animationMainDarkColor,
+    primaryClickColor: AppColors.animationPrimaryDarkColor,
+    greyClickColor: AppColors.animationGreyDarkColor,
+    lightClickColor: AppColors.animationBlackDarkColor,
+    defaultTextColor: AppColors.textDefaultDarkColor,
+    accentTextColor: AppColors.textAccentDarkColor,
+    lightTextColor: AppColors.textLightDarkColor,
+    defaultErrorColor: AppColors.defaultErrorDarkColor,
+    defaultBlueColor: AppColors.defaultBlueDarkColor,
+    defaultWhiteColor: AppColors.white,
+    defaultBlackColor: AppColors.black,
+    defaultTransparentColor: AppColors.transparent,
+  );
 }

@@ -11,6 +11,18 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
   final TextStyle defaultText18;
   final TextStyle defaultText20;
 
+  final TextStyle accentText12;
+  final TextStyle accentText14;
+  final TextStyle accentText16;
+  final TextStyle accentText18;
+  final TextStyle accentText20;
+
+  final TextStyle lightText12;
+  final TextStyle lightText14;
+  final TextStyle lightText16;
+  final TextStyle lightText18;
+  final TextStyle lightText20;
+
   final TextStyle blueText12;
   final TextStyle blueText14;
   final TextStyle blueText16;
@@ -35,6 +47,18 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
   final TextStyle blueText18Fat;
   final TextStyle blueText20Fat;
 
+  final TextStyle accentText12Fat;
+  final TextStyle accentText14Fat;
+  final TextStyle accentText16Fat;
+  final TextStyle accentText18Fat;
+  final TextStyle accentText20Fat;
+
+  final TextStyle lightText12Fat;
+  final TextStyle lightText14Fat;
+  final TextStyle lightText16Fat;
+  final TextStyle lightText18Fat;
+  final TextStyle lightText20Fat;
+
   final TextStyle whiteText12Fat;
   final TextStyle whiteText14Fat;
   final TextStyle whiteText16Fat;
@@ -52,6 +76,16 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
     required this.blueText16,
     required this.blueText18,
     required this.blueText20,
+    required this.accentText12,
+    required this.accentText14,
+    required this.accentText16,
+    required this.accentText18,
+    required this.accentText20,
+    required this.lightText12,
+    required this.lightText14,
+    required this.lightText16,
+    required this.lightText18,
+    required this.lightText20,
     required this.whiteText12,
     required this.whiteText14,
     required this.whiteText16,
@@ -67,6 +101,16 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
     required this.blueText16Fat,
     required this.blueText18Fat,
     required this.blueText20Fat,
+    required this.accentText12Fat,
+    required this.accentText14Fat,
+    required this.accentText16Fat,
+    required this.accentText18Fat,
+    required this.accentText20Fat,
+    required this.lightText12Fat,
+    required this.lightText14Fat,
+    required this.lightText16Fat,
+    required this.lightText18Fat,
+    required this.lightText20Fat,
     required this.whiteText12Fat,
     required this.whiteText14Fat,
     required this.whiteText16Fat,
@@ -86,6 +130,16 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
     TextStyle? blueText16,
     TextStyle? blueText18,
     TextStyle? blueText20,
+    TextStyle? accentText12,
+    TextStyle? accentText14,
+    TextStyle? accentText16,
+    TextStyle? accentText18,
+    TextStyle? accentText20,
+    TextStyle? lightText12,
+    TextStyle? lightText14,
+    TextStyle? lightText16,
+    TextStyle? lightText18,
+    TextStyle? lightText20,
     TextStyle? whiteText12,
     TextStyle? whiteText14,
     TextStyle? whiteText16,
@@ -101,6 +155,16 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
     TextStyle? blueText16Fat,
     TextStyle? blueText18Fat,
     TextStyle? blueText20Fat,
+    TextStyle? accentText12Fat,
+    TextStyle? accentText14Fat,
+    TextStyle? accentText16Fat,
+    TextStyle? accentText18Fat,
+    TextStyle? accentText20Fat,
+    TextStyle? lightText12Fat,
+    TextStyle? lightText14Fat,
+    TextStyle? lightText16Fat,
+    TextStyle? lightText18Fat,
+    TextStyle? lightText20Fat,
     TextStyle? whiteText12Fat,
     TextStyle? whiteText14Fat,
     TextStyle? whiteText16Fat,
@@ -118,6 +182,16 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
       blueText16: blueText16 ?? this.blueText16,
       blueText18: blueText18 ?? this.blueText18,
       blueText20: blueText20 ?? this.blueText20,
+      accentText12: accentText12 ?? this.accentText12,
+      accentText14: accentText14 ?? this.accentText14,
+      accentText16: accentText16 ?? this.accentText16,
+      accentText18: accentText18 ?? this.accentText18,
+      accentText20: accentText20 ?? this.accentText20,
+      lightText12: lightText12 ?? this.lightText12,
+      lightText14: lightText14 ?? this.lightText14,
+      lightText16: lightText16 ?? this.lightText16,
+      lightText18: lightText18 ?? this.lightText18,
+      lightText20: lightText20 ?? this.lightText20,
       whiteText12: whiteText12 ?? this.whiteText12,
       whiteText14: whiteText14 ?? this.whiteText14,
       whiteText16: whiteText16 ?? this.whiteText16,
@@ -133,6 +207,16 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
       blueText16Fat: blueText16Fat ?? this.blueText16Fat,
       blueText18Fat: blueText18Fat ?? this.blueText18Fat,
       blueText20Fat: blueText20Fat ?? this.blueText20Fat,
+      accentText12Fat: accentText12Fat ?? this.accentText12Fat,
+      accentText14Fat: accentText14Fat ?? this.accentText14Fat,
+      accentText16Fat: accentText16Fat ?? this.accentText16Fat,
+      accentText18Fat: accentText18Fat ?? this.accentText18Fat,
+      accentText20Fat: accentText20Fat ?? this.accentText20Fat,
+      lightText12Fat: lightText12Fat ?? this.lightText12Fat,
+      lightText14Fat: lightText14Fat ?? this.lightText14Fat,
+      lightText16Fat: lightText16Fat ?? this.lightText16Fat,
+      lightText18Fat: lightText18Fat ?? this.lightText18Fat,
+      lightText20Fat: lightText20Fat ?? this.lightText20Fat,
       whiteText12Fat: whiteText12Fat ?? this.whiteText12Fat,
       whiteText14Fat: whiteText14Fat ?? this.whiteText14Fat,
       whiteText16Fat: whiteText16Fat ?? this.whiteText16Fat,
@@ -158,6 +242,16 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
       blueText16: TextStyle.lerp(blueText16, other.blueText16, t)!,
       blueText18: TextStyle.lerp(blueText18, other.blueText18, t)!,
       blueText20: TextStyle.lerp(blueText20, other.blueText20, t)!,
+      accentText12: TextStyle.lerp(accentText12, other.accentText12, t)!,
+      accentText14: TextStyle.lerp(accentText14, other.accentText14, t)!,
+      accentText16: TextStyle.lerp(accentText16, other.accentText16, t)!,
+      accentText18: TextStyle.lerp(accentText18, other.accentText18, t)!,
+      accentText20: TextStyle.lerp(accentText20, other.accentText20, t)!,
+      lightText12: TextStyle.lerp(lightText12, other.lightText12, t)!,
+      lightText14: TextStyle.lerp(lightText14, other.lightText14, t)!,
+      lightText16: TextStyle.lerp(lightText16, other.lightText16, t)!,
+      lightText18: TextStyle.lerp(lightText18, other.lightText18, t)!,
+      lightText20: TextStyle.lerp(lightText20, other.lightText20, t)!,
       whiteText12: TextStyle.lerp(whiteText12, other.whiteText12, t)!,
       whiteText14: TextStyle.lerp(whiteText14, other.whiteText14, t)!,
       whiteText16: TextStyle.lerp(whiteText16, other.whiteText16, t)!,
@@ -178,6 +272,21 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
       blueText16Fat: TextStyle.lerp(blueText16Fat, other.blueText16Fat, t)!,
       blueText18Fat: TextStyle.lerp(blueText18Fat, other.blueText18Fat, t)!,
       blueText20Fat: TextStyle.lerp(blueText20Fat, other.blueText20Fat, t)!,
+      accentText12Fat:
+          TextStyle.lerp(accentText12Fat, other.accentText12Fat, t)!,
+      accentText14Fat:
+          TextStyle.lerp(accentText14Fat, other.accentText14Fat, t)!,
+      accentText16Fat:
+          TextStyle.lerp(accentText16Fat, other.accentText16Fat, t)!,
+      accentText18Fat:
+          TextStyle.lerp(accentText18Fat, other.accentText18Fat, t)!,
+      accentText20Fat:
+          TextStyle.lerp(accentText20Fat, other.accentText20Fat, t)!,
+      lightText12Fat: TextStyle.lerp(lightText12Fat, other.lightText12Fat, t)!,
+      lightText14Fat: TextStyle.lerp(lightText14Fat, other.lightText14Fat, t)!,
+      lightText16Fat: TextStyle.lerp(lightText16Fat, other.lightText16Fat, t)!,
+      lightText18Fat: TextStyle.lerp(lightText18Fat, other.lightText18Fat, t)!,
+      lightText20Fat: TextStyle.lerp(lightText20Fat, other.lightText20Fat, t)!,
       whiteText12Fat: TextStyle.lerp(whiteText12Fat, other.whiteText12Fat, t)!,
       whiteText14Fat: TextStyle.lerp(whiteText14Fat, other.whiteText14Fat, t)!,
       whiteText16Fat: TextStyle.lerp(whiteText16Fat, other.whiteText16Fat, t)!,
@@ -200,11 +309,31 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
         defaultText16: getStyle(fontSize: 16, color: AppColors.black),
         defaultText18: getStyle(fontSize: 18, color: AppColors.black),
         defaultText20: getStyle(fontSize: 20, color: AppColors.black),
-        blueText12: getStyle(color: AppColors.defaultLightColor, fontSize: 12),
-        blueText14: getStyle(color: AppColors.defaultLightColor, fontSize: 14),
-        blueText16: getStyle(color: AppColors.defaultLightColor, fontSize: 16),
-        blueText18: getStyle(color: AppColors.defaultLightColor, fontSize: 18),
-        blueText20: getStyle(color: AppColors.defaultLightColor, fontSize: 20),
+        blueText12: getStyle(color: AppColors.primaryLightColor, fontSize: 12),
+        blueText14: getStyle(color: AppColors.primaryLightColor, fontSize: 14),
+        blueText16: getStyle(color: AppColors.primaryLightColor, fontSize: 16),
+        blueText18: getStyle(color: AppColors.primaryLightColor, fontSize: 18),
+        blueText20: getStyle(color: AppColors.primaryLightColor, fontSize: 20),
+        accentText12:
+            getStyle(color: AppColors.textAccentLightColor, fontSize: 12),
+        accentText14:
+            getStyle(color: AppColors.textAccentLightColor, fontSize: 14),
+        accentText16:
+            getStyle(color: AppColors.textAccentLightColor, fontSize: 16),
+        accentText18:
+            getStyle(color: AppColors.textAccentLightColor, fontSize: 18),
+        accentText20:
+            getStyle(color: AppColors.textAccentLightColor, fontSize: 20),
+        lightText12:
+            getStyle(color: AppColors.textLigntLightColor, fontSize: 12),
+        lightText14:
+            getStyle(color: AppColors.textLigntLightColor, fontSize: 14),
+        lightText16:
+            getStyle(color: AppColors.textLigntLightColor, fontSize: 16),
+        lightText18:
+            getStyle(color: AppColors.textLigntLightColor, fontSize: 18),
+        lightText20:
+            getStyle(color: AppColors.textLigntLightColor, fontSize: 20),
         whiteText12: getStyle(color: AppColors.white, fontSize: 12),
         whiteText14: getStyle(color: AppColors.white, fontSize: 14),
         whiteText16: getStyle(color: AppColors.white, fontSize: 16),
@@ -221,23 +350,61 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
         defaultText20Fat: getStyle(
             color: AppColors.black, fontSize: 20, fontWeight: FontWeight.w500),
         blueText12Fat: getStyle(
-            color: AppColors.defaultLightColor,
+            color: AppColors.primaryLightColor,
             fontSize: 12,
             fontWeight: FontWeight.w500),
         blueText14Fat: getStyle(
-            color: AppColors.defaultLightColor,
+            color: AppColors.primaryLightColor,
             fontSize: 14,
             fontWeight: FontWeight.w500),
         blueText16Fat: getStyle(
-            color: AppColors.defaultLightColor,
+            color: AppColors.primaryLightColor,
             fontSize: 16,
             fontWeight: FontWeight.w500),
         blueText18Fat: getStyle(
-            color: AppColors.defaultLightColor,
+            color: AppColors.primaryLightColor,
             fontSize: 18,
             fontWeight: FontWeight.w500),
         blueText20Fat: getStyle(
-            color: AppColors.defaultLightColor,
+            color: AppColors.primaryLightColor,
+            fontSize: 20,
+            fontWeight: FontWeight.w500),
+        accentText12Fat:
+            getStyle(color: AppColors.textAccentLightColor, fontSize: 12),
+        accentText14Fat: getStyle(
+            color: AppColors.textAccentLightColor,
+            fontSize: 14,
+            fontWeight: FontWeight.w500),
+        accentText16Fat: getStyle(
+            color: AppColors.textAccentLightColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w500),
+        accentText18Fat: getStyle(
+            color: AppColors.textAccentLightColor,
+            fontSize: 18,
+            fontWeight: FontWeight.w500),
+        accentText20Fat: getStyle(
+            color: AppColors.textAccentLightColor,
+            fontSize: 20,
+            fontWeight: FontWeight.w500),
+        lightText12Fat: getStyle(
+            color: AppColors.textLigntLightColor,
+            fontSize: 12,
+            fontWeight: FontWeight.w500),
+        lightText14Fat: getStyle(
+            color: AppColors.textLigntLightColor,
+            fontSize: 14,
+            fontWeight: FontWeight.w500),
+        lightText16Fat: getStyle(
+            color: AppColors.textLigntLightColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w500),
+        lightText18Fat: getStyle(
+            color: AppColors.textLigntLightColor,
+            fontSize: 18,
+            fontWeight: FontWeight.w500),
+        lightText20Fat: getStyle(
+            color: AppColors.textLigntLightColor,
             fontSize: 20,
             fontWeight: FontWeight.w500),
         whiteText12Fat: getStyle(
@@ -258,11 +425,31 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
         defaultText16: getStyle(fontSize: 16, color: AppColors.white),
         defaultText18: getStyle(fontSize: 18, color: AppColors.white),
         defaultText20: getStyle(fontSize: 20, color: AppColors.white),
-        blueText12: getStyle(color: AppColors.defaultDarkColor, fontSize: 12),
-        blueText14: getStyle(color: AppColors.defaultDarkColor, fontSize: 14),
-        blueText16: getStyle(color: AppColors.defaultDarkColor, fontSize: 16),
-        blueText18: getStyle(color: AppColors.defaultDarkColor, fontSize: 18),
-        blueText20: getStyle(color: AppColors.defaultDarkColor, fontSize: 20),
+        blueText12: getStyle(color: AppColors.primaryDarkColor, fontSize: 12),
+        blueText14: getStyle(color: AppColors.primaryDarkColor, fontSize: 14),
+        blueText16: getStyle(color: AppColors.primaryDarkColor, fontSize: 16),
+        blueText18: getStyle(color: AppColors.primaryDarkColor, fontSize: 18),
+        blueText20: getStyle(color: AppColors.primaryDarkColor, fontSize: 20),
+        accentText12:
+            getStyle(color: AppColors.textAccentDarkColor, fontSize: 12),
+        accentText14:
+            getStyle(color: AppColors.textAccentDarkColor, fontSize: 14),
+        accentText16:
+            getStyle(color: AppColors.textAccentDarkColor, fontSize: 16),
+        accentText18:
+            getStyle(color: AppColors.textAccentDarkColor, fontSize: 18),
+        accentText20:
+            getStyle(color: AppColors.textAccentDarkColor, fontSize: 20),
+        lightText12:
+            getStyle(color: AppColors.textLightDarkColor, fontSize: 12),
+        lightText14:
+            getStyle(color: AppColors.textLightDarkColor, fontSize: 14),
+        lightText16:
+            getStyle(color: AppColors.textLightDarkColor, fontSize: 16),
+        lightText18:
+            getStyle(color: AppColors.textLightDarkColor, fontSize: 18),
+        lightText20:
+            getStyle(color: AppColors.textLightDarkColor, fontSize: 20),
         whiteText12: getStyle(color: AppColors.black, fontSize: 12),
         whiteText14: getStyle(color: AppColors.black, fontSize: 14),
         whiteText16: getStyle(color: AppColors.black, fontSize: 16),
@@ -279,23 +466,63 @@ class IgceTextTheme extends ThemeExtension<IgceTextTheme> {
         defaultText20Fat: getStyle(
             color: AppColors.white, fontSize: 20, fontWeight: FontWeight.w500),
         blueText12Fat: getStyle(
-            color: AppColors.defaultDarkColor,
+            color: AppColors.primaryDarkColor,
             fontSize: 12,
             fontWeight: FontWeight.w500),
         blueText14Fat: getStyle(
-            color: AppColors.defaultDarkColor,
+            color: AppColors.primaryDarkColor,
             fontSize: 14,
             fontWeight: FontWeight.w500),
         blueText16Fat: getStyle(
-            color: AppColors.defaultDarkColor,
+            color: AppColors.primaryDarkColor,
             fontSize: 16,
             fontWeight: FontWeight.w500),
         blueText18Fat: getStyle(
-            color: AppColors.defaultDarkColor,
+            color: AppColors.primaryDarkColor,
             fontSize: 18,
             fontWeight: FontWeight.w500),
         blueText20Fat: getStyle(
-            color: AppColors.defaultDarkColor,
+            color: AppColors.primaryDarkColor,
+            fontSize: 20,
+            fontWeight: FontWeight.w500),
+        accentText12Fat: getStyle(
+            color: AppColors.textAccentDarkColor,
+            fontSize: 12,
+            fontWeight: FontWeight.w500),
+        accentText14Fat: getStyle(
+            color: AppColors.textAccentDarkColor,
+            fontSize: 14,
+            fontWeight: FontWeight.w500),
+        accentText16Fat: getStyle(
+            color: AppColors.textAccentDarkColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w500),
+        accentText18Fat: getStyle(
+            color: AppColors.textAccentDarkColor,
+            fontSize: 18,
+            fontWeight: FontWeight.w500),
+        accentText20Fat: getStyle(
+            color: AppColors.textAccentDarkColor,
+            fontSize: 20,
+            fontWeight: FontWeight.w500),
+        lightText12Fat: getStyle(
+            color: AppColors.textLightDarkColor,
+            fontSize: 12,
+            fontWeight: FontWeight.w500),
+        lightText14Fat: getStyle(
+            color: AppColors.textLightDarkColor,
+            fontSize: 14,
+            fontWeight: FontWeight.w500),
+        lightText16Fat: getStyle(
+            color: AppColors.textLightDarkColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w500),
+        lightText18Fat: getStyle(
+            color: AppColors.textLightDarkColor,
+            fontSize: 18,
+            fontWeight: FontWeight.w500),
+        lightText20Fat: getStyle(
+            color: AppColors.textLightDarkColor,
             fontSize: 20,
             fontWeight: FontWeight.w500),
         whiteText12Fat: getStyle(

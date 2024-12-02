@@ -52,23 +52,23 @@ class IgceColorSchema extends ColorScheme {
 
   static get light => IgceColorSchema(
       brightness: Brightness.light,
-      primary: AppColors.defaultLightColor,
+      primary: AppColors.primaryLightColor,
       onPrimary: AppColors.white,
       secondary: AppColors.defaultLightColor,
-      onSecondary: AppColors.white,
+      onSecondary: AppColors.textDefaultLightColor,
       error: AppColors.defaultErrorLightColor,
-      onError: AppColors.defaultMainLightColor,
+      onError: AppColors.textDefaultLightColor,
       surface: AppColors.backgroundAppLightColor,
       onSurface: AppColors.black);
 
   static get dark => IgceColorSchema(
       brightness: Brightness.dark,
-      primary: AppColors.defaultDarkColor,
+      primary: AppColors.primaryDarkColor,
       onPrimary: AppColors.white,
       secondary: AppColors.defaultDarkColor,
-      onSecondary: AppColors.white,
+      onSecondary: AppColors.textDefaultDarkColor,
       error: AppColors.defaultErrorDarkColor,
-      onError: AppColors.defaultMainDarkColor,
+      onError: AppColors.textDefaultDarkColor,
       surface: AppColors.backgroundAppDarkColor,
       onSurface: AppColors.white);
 }
