@@ -116,7 +116,7 @@ abstract class IgceCard extends StatelessWidget {
   Widget getTrailing(BuildContext context) {
     return Icon(
       Icons.arrow_forward_ios_rounded,
-      color: context.colorTheme.defaultColor,
+      color: context.colorTheme.primaryColor,
       size: 17,
     );
   }

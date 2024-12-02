@@ -30,7 +30,7 @@ abstract class IgceElevatedButton extends StatelessWidget {
     return context.textTheme.defaultText14.copyWith(
         color: onPressed == null
             ? context.colorTheme.defaultGreyColor
-            : context.colorTheme.defaultColor,
+            : context.colorTheme.primaryColor,
         overflow: TextOverflow.ellipsis,
         fontWeight: FontWeight.w500);
   }
