@@ -18,7 +18,9 @@ abstract class AppColors {
   static const Color backgroundWidgetDarkColor = Color(0xFF25292C);
 
   //Тени
-  static const Color boxShadowLightColor = Color(0xFFEAECF0);
+  // static const Color boxShadowLightColor = Color(0xFFEAECF0);
+
+  static const Color boxShadowLightColor = Color(0xFF6D7982);
   static const Color boxShadowDarkColor = Colors.transparent;
 
   //Серые цвета
