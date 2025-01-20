@@ -20,7 +20,7 @@ abstract class AppColors {
   //Тени
   // static const Color boxShadowLightColor = Color(0xFFEAECF0);
 
-  static const Color boxShadowLightColor = Color(0xFF6D7982);
+  static const Color boxShadowLightColor = Color(0x26818181);
   static const Color boxShadowDarkColor = Colors.transparent;
 
   //Серые цвета
