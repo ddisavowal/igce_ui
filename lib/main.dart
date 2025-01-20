@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         trailing: themeMode == ThemeMode.light
                             ? Icon(Icons.check,
-                                color: context.colorTheme.defaultColor)
+                                color: context.colorTheme.primaryColor)
                             : const SizedBox(height: 0),
                         onTap: () => context
                             .read<ThemeCubit>()
@@ -97,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         trailing: themeMode == ThemeMode.dark
                             ? Icon(Icons.check,
-                                color: context.colorTheme.defaultColor)
+                                color: context.colorTheme.primaryColor)
                             : const SizedBox(height: 0),
                         onTap: () =>
                             context.read<ThemeCubit>().setTheme(ThemeMode.dark),
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         trailing: themeMode == ThemeMode.system
                             ? Icon(Icons.check,
-                                color: context.colorTheme.defaultColor)
+                                color: context.colorTheme.primaryColor)
                             : const SizedBox(height: 0),
                         onTap: () => context
                             .read<ThemeCubit>()
@@ -132,10 +132,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+    return ModuleScaffold(
+      // appBar: AppBar(
+      //   title: Text(widget.title),
+      // ),
+      title: widget.title,
+      leading: DefaultMenu(itemsTitle: const [
+        'Еще что-то',
+        'Витрина проектов',
+        'Настройки',
+      ], itemsIcon: const [
+        Icons.abc,
+        Icons.personal_injury_outlined,
+        Icons.settings
+      ], onItemsSelected: [
+        () => ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Выбрано значение 1')),
+            ),
+        () => ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Выбрано значение 2')),
+            ),
+        () => ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(content: Text('Выбрано значение 3')),
+            )
+      ]),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -198,6 +218,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
+      bottomNavigationBar:
+          Container(height: 70, color: context.colorTheme.defaultColor),
       floatingActionButton: DefaultFloatingButton(
         text: 'example',
         onPressed: _incrementCounter,
