@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:igce_theme/igce_theme.dart';
 import 'package:igce_theme/theme_repository.dart';
@@ -43,14 +45,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   void settingsTheme(BuildContext context) {
     showDialog<void>(
       context: context,
@@ -130,6 +124,20 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  TextEditingController textController = TextEditingController();
+  TextEditingController searchController = TextEditingController();
+  bool isClearEnable = false;
+
+  @override
+  void initState() {
+    super.initState();
+    searchController.addListener(() {
+      setState(() {
+        isClearEnable = searchController.text.isNotEmpty;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ModuleScaffold(
@@ -137,6 +145,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //   title: Text(widget.title),
       // ),
       title: widget.title,
+
       leading: DefaultMenu(itemsTitle: const [
         'Еще что-то',
         'Витрина проектов',
@@ -156,6 +165,19 @@ class _MyHomePageState extends State<MyHomePage> {
               const SnackBar(content: Text('Выбрано значение 3')),
             )
       ]),
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(40),
+        child: SearchFormField(
+          padding: const EdgeInsets.all(10),
+          labelText: 'Пример поля поиска',
+          controller: searchController,
+          isClearEnable: isClearEnable,
+          onChanged: (query) {},
+          onClearPressed: () => setState(() {
+            searchController.clear();
+          }),
+        ),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -175,6 +197,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 'Это пример текста для стандартного контейнере',
                 style: context.textTheme.defaultText14,
               )),
+              const SizedBox(height: 30),
+              DefaultFormField(
+                labelText: 'Пример текстового поля',
+                controller: textController,
+              ),
               const SizedBox(height: 30),
               IconCard(
                 icon: Icon(Icons.home),
@@ -222,7 +249,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(height: 70, color: context.colorTheme.defaultColor),
       floatingActionButton: DefaultFloatingButton(
         text: 'example',
-        onPressed: _incrementCounter,
+        onPressed: () {},
       ),
     );
   }
