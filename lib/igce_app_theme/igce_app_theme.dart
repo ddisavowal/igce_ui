@@ -29,7 +29,8 @@ abstract class AppColors {
 
   //Цвета выделения
   static const Color accentLightColor = Color(0xFFC4D0DB);
-  static const Color accentDarkColor = Color(0xFF3E464C);
+  // static const Color accentDarkColor = Color(0xFF3E464C);
+  static const Color accentDarkColor = Color.fromARGB(255, 45, 51, 56);
   static const Color accentGreyLightColor = Color(0xFFEAECF0);
   static const Color accentGreyDarkColor = Color(0xFF303539);
 
@@ -40,7 +41,8 @@ abstract class AppColors {
   static const Color animationPrimaryDarkColor = Color(0xFF14A578);
   static const Color animationGreyLightColor = Color(0xFF9FA2A7);
   static const Color animationGreyDarkColor = Color(0xFF5B646B);
-  static const Color animationWhiteLightColor = Color(0xFFEDF3FC);
+  static const Color animationWhiteLightColor =
+      Color.fromARGB(255, 222, 231, 244);
   static const Color animationBlackDarkColor = Color(0xFF353B3F);
 
   //Цвета текста
