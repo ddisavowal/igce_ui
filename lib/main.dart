@@ -1,13 +1,19 @@
 import 'dart:collection';
+import 'dart:convert';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:igce_theme/igce_theme.dart';
 import 'package:igce_theme/theme_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:test_project/data/app/dependencies_init.dart';
+import 'package:test_project/data/models/chatMessage.dart';
+import 'package:test_project/data/repositories/sp_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
+  await DependenciesInitializer.setup();
   runApp(MyApp(
     prefs: prefs,
   ));
@@ -248,8 +254,136 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar:
           Container(height: 70, color: context.colorTheme.defaultColor),
       floatingActionButton: DefaultFloatingButton(
-        text: 'example',
-        onPressed: () {},
+        text: 'Bot',
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Botpage()),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class Botpage extends StatefulWidget {
+  const Botpage({super.key});
+
+  @override
+  State<Botpage> createState() => _BotpageState();
+}
+
+class _BotpageState extends State<Botpage> {
+  SPRepository spRepository = GetIt.instance<SPRepository>();
+  List<MessageModel> chatHistory = [];
+  TextEditingController textController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    loadChatHistory();
+  }
+
+  void saveChatHistory() async {
+    final messages = chatHistory
+        .map((msg) => jsonEncode({
+              'text': msg.text,
+              'isSentByUser': msg.isSentByUser,
+              'timestamp': msg.timestamp.toIso8601String(),
+            }))
+        .toList();
+    spRepository.setStringListLocalData('chatHistory', messages);
+  }
+
+  void loadChatHistory() async {
+    final messages = await spRepository.getStringListLocalData('chatHistory');
+    setState(() {
+      chatHistory = messages!.map((msg) {
+        final data = jsonDecode(msg);
+        return MessageModel(
+          text: data['text'],
+          isSentByUser: data['isSentByUser'],
+          timestamp: DateTime.parse(data['timestamp']),
+        );
+      }).toList();
+    });
+  }
+
+  void sentMessage(String text) {
+    MessageModel userMessage =
+        MessageModel(text: text, isSentByUser: true, timestamp: DateTime.now());
+    String botText = 'Ответ бота';
+    MessageModel botMessage = MessageModel(
+        text: botText, isSentByUser: false, timestamp: DateTime.now());
+    chatHistory.add(userMessage);
+    chatHistory.add(botMessage);
+    saveChatHistory();
+    setState(() {});
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultScaffold(
+      title: 'Bot',
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              // reverse: true, // Чтобы последние сообщения были внизу
+              itemCount: chatHistory.length,
+              itemBuilder: (context, index) {
+                final message = chatHistory[index];
+                return Align(
+                  alignment: message.isSentByUser
+                      ? Alignment.centerRight
+                      : Alignment.centerLeft,
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.symmetric(vertical: 5),
+                    decoration: BoxDecoration(
+                      color: message.isSentByUser
+                          ? context.colorTheme.mainClickColor
+                          : context.colorTheme.backgroundWidgetColor,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: context.colorTheme.boxShadowColor,
+                          offset: const Offset(0, 0), // X0 Y0
+                          blurRadius: 6, // Blur 6
+                          spreadRadius: 0, // Spread 0
+                        ),
+                      ],
+                    ),
+                    child: Text(message.text),
+                  ),
+                );
+              },
+            ),
+          ),
+          Container(
+            // height: 100,
+            // width: MediaQuery.of(context).size.width * 0.9,
+            padding: EdgeInsets.fromLTRB(10, 10, 10, 30),
+            color: context.colorTheme.defaultColor,
+            child: Row(
+              children: [
+                Expanded(
+                  child: DefaultFormField(
+                    // labelText: 'Введите сообщение',
+                    hintText: 'Введите сообщение',
+                    controller: textController,
+                  ),
+                ),
+                IconButton(
+                    onPressed: () {
+                      sentMessage(textController.text);
+                      textController.clear();
+                    },
+                    icon: Icon(Icons.send))
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
