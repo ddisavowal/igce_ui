@@ -10,6 +10,8 @@ import 'package:test_project/data/app/dependencies_init.dart';
 import 'package:test_project/data/models/chatMessage.dart';
 import 'package:test_project/data/repositories/sp_repository.dart';
 
+import 'data/blocs/bloc/messages_bloc.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -24,9 +26,16 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key, required this.prefs});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) =>
-          ThemeCubit(themeRepository: ThemeRepository(preferences: prefs)),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              ThemeCubit(themeRepository: ThemeRepository(preferences: prefs)),
+        ),
+        BlocProvider(
+          create: (context) => MessagesBloc(),
+        ),
+      ],
       child: BlocBuilder<ThemeCubit, ThemeState>(builder: (context, state) {
         return MaterialApp(
           title: 'Flutter Demo',
@@ -321,69 +330,84 @@ class _BotpageState extends State<Botpage> {
     setState(() {});
   }
 
+  MessagesBloc messageBloc = MessagesBloc();
+
   @override
   Widget build(BuildContext context) {
     return DefaultScaffold(
       title: 'Bot',
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              // reverse: true, // Чтобы последние сообщения были внизу
-              itemCount: chatHistory.length,
-              itemBuilder: (context, index) {
-                final message = chatHistory[index];
-                return Align(
-                  alignment: message.isSentByUser
-                      ? Alignment.centerRight
-                      : Alignment.centerLeft,
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.symmetric(vertical: 5),
-                    decoration: BoxDecoration(
-                      color: message.isSentByUser
-                          ? context.colorTheme.mainClickColor
-                          : context.colorTheme.backgroundWidgetColor,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: context.colorTheme.boxShadowColor,
-                          offset: const Offset(0, 0), // X0 Y0
-                          blurRadius: 6, // Blur 6
-                          spreadRadius: 0, // Spread 0
+      body: BlocBuilder<MessagesBloc, MessagesState>(
+        bloc: messageBloc..add(LoadMessagesListEvent()),
+        builder: (context, state) {
+          if (state.isLoading) {
+            return CircularProgressIndicator();
+          }
+          if (state.error != null) {
+            return Text('error');
+          }
+          return Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  // reverse: true, // Чтобы последние сообщения были внизу
+                  itemCount: chatHistory.length,
+                  itemBuilder: (context, index) {
+                    final message = chatHistory[index];
+                    return Align(
+                      alignment: message.isSentByUser
+                          ? Alignment.centerRight
+                          : Alignment.centerLeft,
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        margin: EdgeInsets.symmetric(vertical: 5),
+                        decoration: BoxDecoration(
+                          color: message.isSentByUser
+                              ? context.colorTheme.mainClickColor
+                              : context.colorTheme.backgroundWidgetColor,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: context.colorTheme.boxShadowColor,
+                              offset: const Offset(0, 0), // X0 Y0
+                              blurRadius: 6, // Blur 6
+                              spreadRadius: 0, // Spread 0
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    child: Text(message.text),
-                  ),
-                );
-              },
-            ),
-          ),
-          Container(
-            // height: 100,
-            // width: MediaQuery.of(context).size.width * 0.9,
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 30),
-            color: context.colorTheme.defaultColor,
-            child: Row(
-              children: [
-                Expanded(
-                  child: DefaultFormField(
-                    // labelText: 'Введите сообщение',
-                    hintText: 'Введите сообщение',
-                    controller: textController,
-                  ),
+                        child: Text(message.text),
+                      ),
+                    );
+                  },
                 ),
-                IconButton(
-                    onPressed: () {
-                      sentMessage(textController.text);
-                      textController.clear();
-                    },
-                    icon: Icon(Icons.send))
-              ],
-            ),
-          )
-        ],
+              ),
+              Container(
+                // height: 100,
+                // width: MediaQuery.of(context).size.width * 0.9,
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 30),
+                color: context.colorTheme.defaultColor,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: DefaultFormField(
+                        // labelText: 'Введите сообщение',
+                        hintText: 'Введите сообщение',
+                        controller: textController,
+                      ),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          // sentMessage(textController.text);
+                          messageBloc.add(
+                              SendMessageEvent(message: textController.text));
+                          textController.clear();
+                        },
+                        icon: Icon(Icons.send))
+                  ],
+                ),
+              )
+            ],
+          );
+        },
       ),
     );
   }
