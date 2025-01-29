@@ -350,9 +350,9 @@ class _BotpageState extends State<Botpage> {
               Expanded(
                 child: ListView.builder(
                   // reverse: true, // Чтобы последние сообщения были внизу
-                  itemCount: chatHistory.length,
+                  itemCount: state.messages!.length,
                   itemBuilder: (context, index) {
-                    final message = chatHistory[index];
+                    final message = state.messages![index];
                     return Align(
                       alignment: message.isSentByUser
                           ? Alignment.centerRight

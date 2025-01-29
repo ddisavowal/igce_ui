@@ -33,12 +33,10 @@ class MessagesBloc extends Bloc<MessagesEvent, MessagesState> {
 
       chatHistory.add(userMessage);
       chatHistory.add(botMessage);
-      print(chatHistory[chatHistory.length - 2].text);
-      List<MessageModel> newChatHistory = chatHistory;
 
-      emit(state.copyWith(messages: newChatHistory));
+      await saveChatHistory(chatHistory);
 
-      saveChatHistory(chatHistory);
+      emit(state.copyWith(messages: chatHistory));
     } catch (e) {
       emit(state.copyWith(error: e.toString()));
     }
@@ -78,7 +76,7 @@ class MessagesBloc extends Bloc<MessagesEvent, MessagesState> {
   //   }
   // }
 
-  void saveChatHistory(List<MessageModel> chatHistory) async {
+  saveChatHistory(List<MessageModel> chatHistory) async {
     final messages = chatHistory
         .map((msg) => jsonEncode({
               'text': msg.text,
