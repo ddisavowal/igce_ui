@@ -213,6 +213,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: context.textTheme.defaultText14,
               )),
               const SizedBox(height: 30),
+              Container(
+                padding: const EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    color: context.colorTheme.defaultColor,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    )),
+              ),
+              const SizedBox(height: 30),
               DefaultFormField(
                 labelText: 'Пример текстового поля',
                 controller: textController,
@@ -339,7 +351,10 @@ class _BotpageState extends State<Botpage> {
       body: BlocBuilder<MessagesBloc, MessagesState>(
         bloc: messageBloc..add(LoadMessagesListEvent()),
         builder: (context, state) {
-          if (state.isLoading) {
+          if (state.messages == null) {
+            messageBloc.add(LoadMessagesListEvent());
+          }
+          if (state.isLoading || state.messages == null) {
             return CircularProgressIndicator();
           }
           if (state.error != null) {
@@ -359,12 +374,22 @@ class _BotpageState extends State<Botpage> {
                           : Alignment.centerLeft,
                       child: Container(
                         padding: EdgeInsets.all(10),
-                        margin: EdgeInsets.symmetric(vertical: 5),
+                        margin: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           color: message.isSentByUser
                               ? context.colorTheme.mainClickColor
                               : context.colorTheme.backgroundWidgetColor,
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: message.isSentByUser
+                              ? const BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20),
+                                )
+                              : const BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                  bottomRight: Radius.circular(20),
+                                ),
                           boxShadow: [
                             BoxShadow(
                               color: context.colorTheme.boxShadowColor,

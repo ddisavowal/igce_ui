@@ -46,7 +46,7 @@ class MessagesBloc extends Bloc<MessagesEvent, MessagesState> {
       LoadMessagesListEvent event, Emitter<MessagesState> emit) async {
     emit(state.copyWith(isLoading: true));
     try {
-      List<MessageModel> chatHistory = await loadChatHistory();
+      List<MessageModel> chatHistory = await loadChatHistory() ?? [];
 
       emit(state.copyWith(messages: chatHistory));
     } catch (e) {
