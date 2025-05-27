@@ -21,9 +21,10 @@ abstract class IgceElevatedButton extends StatelessWidget {
 
   ButtonStyle? getStyle(BuildContext context) {
     return ElevatedButton.styleFrom(
-        disabledBackgroundColor: context.colorTheme.defaultTransparentColor
-        // context.theme.scaffoldBackgroundColor
-        );
+      disabledBackgroundColor: context.colorTheme.defaultTransparentColor,
+      backgroundColor: context.colorTheme.backgroundWidgetColor,
+      // context.theme.scaffoldBackgroundColor
+    );
   }
 
   TextStyle? getTextStyle(BuildContext context) {

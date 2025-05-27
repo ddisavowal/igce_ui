@@ -8,13 +8,15 @@ abstract class IgceTextFormField extends StatelessWidget {
   final void Function(String)? onChanged;
   final void Function()? onTap;
   final TextEditingController? controller;
+  final bool? readOnly;
   const IgceTextFormField(
       {super.key,
       this.isRequired = false,
       this.labelText,
       this.onChanged,
       this.onTap,
-      this.controller});
+      this.controller,
+      this.readOnly});
 
   Color? getFillColor(BuildContext context) {
     return null;
@@ -142,6 +144,7 @@ abstract class IgceTextFormField extends StatelessWidget {
     return Padding(
       padding: getPadding(),
       child: TextFormField(
+        readOnly: readOnly ?? false,
         onTapOutside: (ev) {
           FocusManager.instance.primaryFocus?.unfocus();
         },

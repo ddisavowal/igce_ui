@@ -6,6 +6,7 @@ abstract class IgceScaffold extends StatelessWidget {
   final String? title;
   final PreferredSizeWidget? appBar;
   final Widget? leading;
+  final List<Widget>? actions;
   final PreferredSizeWidget? bottom;
   final Widget? floatingActionButton;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
@@ -17,6 +18,7 @@ abstract class IgceScaffold extends StatelessWidget {
     this.title,
     this.appBar,
     this.leading,
+    this.actions,
     this.bottom,
     this.floatingActionButton,
     this.floatingActionButtonLocation,
@@ -40,6 +42,7 @@ abstract class IgceScaffold extends StatelessWidget {
             surfaceTintColor: context.colorTheme.defaultColor,
             // shadowColor: context.colorTheme.defaultTransparentColor,
             leading: leading,
+            actions: actions,
             bottom: bottom,
           ),
       body: body,

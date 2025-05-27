@@ -7,18 +7,22 @@ class DefaultFormField extends IgceTextFormField {
   final String? hintText;
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardStyle;
+  final Widget? suffixIcon;
 
-  const DefaultFormField(
-      {super.key,
-      bool isRequired = false,
-      String? labelText,
-      this.hintText,
-      this.inputFormatters,
-      this.keyboardStyle,
-      void Function(String)? onChanged,
-      TextEditingController? controller,
-      this.validator})
-      : super(
+  const DefaultFormField({
+    super.key,
+    bool isRequired = false,
+    String? labelText,
+    this.hintText,
+    this.inputFormatters,
+    this.keyboardStyle,
+    void Function(String)? onChanged,
+    TextEditingController? controller,
+    this.validator,
+    this.suffixIcon,
+    bool? readonly,
+  }) : super(
+          readOnly: readonly,
           isRequired: isRequired,
           labelText: labelText,
           onChanged: onChanged,
@@ -41,5 +45,10 @@ class DefaultFormField extends IgceTextFormField {
   @override
   TextInputType? getKeyboardStyle() {
     return keyboardStyle;
+  }
+
+  @override
+  Widget? getSuffixIcon(BuildContext context) {
+    return suffixIcon;
   }
 }
