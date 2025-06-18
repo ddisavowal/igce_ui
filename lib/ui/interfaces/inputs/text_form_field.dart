@@ -5,18 +5,22 @@ import 'package:igce_theme/extensions/extensions.dart';
 abstract class IgceTextFormField extends StatelessWidget {
   final bool isRequired;
   final String? labelText;
+  final Color? borderColor;
   final void Function(String)? onChanged;
   final void Function()? onTap;
   final TextEditingController? controller;
   final bool? readOnly;
-  const IgceTextFormField(
-      {super.key,
-      this.isRequired = false,
-      this.labelText,
-      this.onChanged,
-      this.onTap,
-      this.controller,
-      this.readOnly});
+
+  const IgceTextFormField({
+    super.key,
+    this.isRequired = false,
+    this.labelText,
+    this.borderColor,
+    this.onChanged,
+    this.onTap,
+    this.controller,
+    this.readOnly,
+  });
 
   Color? getFillColor(BuildContext context) {
     return null;
@@ -116,8 +120,9 @@ abstract class IgceTextFormField extends StatelessWidget {
   InputBorder? getEnabledBorder(BuildContext context) {
     return OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
-        borderSide:
-            BorderSide(color: context.colorTheme.defaultGreyColor, width: 1.5));
+        borderSide: BorderSide(
+            color: borderColor ?? context.colorTheme.defaultGreyColor,
+            width: 1.5));
   }
 
   InputBorder? getErrorBorder(BuildContext context) {

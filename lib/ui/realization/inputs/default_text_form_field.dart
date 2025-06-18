@@ -11,22 +11,19 @@ class DefaultFormField extends IgceTextFormField {
 
   const DefaultFormField({
     super.key,
-    bool isRequired = false,
-    String? labelText,
+    super.isRequired,
+    super.labelText,
     this.hintText,
     this.inputFormatters,
     this.keyboardStyle,
-    void Function(String)? onChanged,
-    TextEditingController? controller,
+    super.borderColor,
+    super.onChanged,
+    super.controller,
     this.validator,
     this.suffixIcon,
     bool? readonly,
   }) : super(
           readOnly: readonly,
-          isRequired: isRequired,
-          labelText: labelText,
-          onChanged: onChanged,
-          controller: controller,
         );
 
   @override
